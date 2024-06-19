@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlipCoin.Views.Home"
+             Title="">
+    <ScrollView>
+        <FlexLayout AlignItems="Center" JustifyContent="Center">
+            <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+                <Image 
+                    x:Name="coin" 
+                    Source="{Binding ImageName}" 
+                    WidthRequest="200" 
+                    HeightRequest="200"/>
+
+                <Label 
+                    x:Name="result" 
+                    Text="{Binding ResultText}"/>
+
+                <Picker
+                Title="Selecione a face da moeda."
+                x:Name="picker"
+                    SelectedItem="{Binding SelectedCoin}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Cara</x:String>
+                            <x:String>Coroa</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Button 
+                    Text="JOGAR" 
+                    Command="{Binding flipCmd}" />
+
+            </VerticalStackLayout>
+        </FlexLayout>
+
+    </ScrollView>
+</ContentPage>
